@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
-import TodoForm from './components/TodoForm';
+import { Provider } from 'react-redux';
+import TodoContainer from './components/TodoContainer';
+import configureStore from './store/configureStore';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: []
-    };
-  }
   render() {
-    const todos = this.state.todos;
-    console.log(todos);
+    const store = configureStore();
     return (
-      <div>
-      <TodoForm onAddTodo={(todo) => this.setState({ todos: [todo, ...todos]})}/>
-      {todos.map(todo => (
-          <div>{todo}</div>
-        ))}
-      </div>
+      <Provider store={store}>
+        <TodoContainer />
+      </Provider>
     );
   }
 }
