@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/todosActions';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+
+const style = {
+  marginLeft: 15,
+};
 
 class TodoForm extends Component {
   render() {
@@ -9,10 +16,18 @@ class TodoForm extends Component {
     };
     return (
       <div>
-        <input type="text" onChange={e => {
-          todo.title = e.target.value;
-          }}/>
-        <button onClick={() => this.props.dispatch(addTodo(todo))}>Add Todo</button>
+        <TextField
+          hintText="Add the todo title"
+          floatingLabelText="Todo title"
+          onChange={e => {
+            todo.title = e.target.value;
+          }}
+        />
+        <RaisedButton
+          icon={<ContentAdd />}
+          style={style}
+          onClick={() => this.props.dispatch(addTodo(todo))}
+        />
       </div>
     )
   }
