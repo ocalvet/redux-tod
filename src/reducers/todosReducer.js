@@ -1,3 +1,4 @@
+import { persistentReducer } from 'redux-pouchdb-plus';
 import { ADD_TODO } from '../actions/actionTypes';
 let id = 1;
 const todos = (state = [], action) => {
@@ -11,4 +12,4 @@ const todos = (state = [], action) => {
   return state;
 }
 
-export default todos;
+export default persistentReducer(todos);

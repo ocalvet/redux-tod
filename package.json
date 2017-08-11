@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "immutable": "^3.8.1",
     "material-ui": "^0.18.7",
+    "pouchdb": "^6.3.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-scripts": "1.0.11",
     "react-tap-event-plugin": "^2.0.1",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-pouchdb-plus": "^0.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
