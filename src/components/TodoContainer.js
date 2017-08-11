@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import TodoForm from './TodoForm';
 import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
-import {List, ListItem} from 'material-ui/List';
+import { List, ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import Subheader from 'material-ui/Subheader';
+import IconButton from 'material-ui/IconButton';
+import ContentRemove from 'material-ui/svg-icons/content/remove';
+import { removeTodo } from '../actions/todosActions';
 
 class TodoContainer extends Component {
   render() {
@@ -20,10 +23,13 @@ class TodoContainer extends Component {
               <Subheader>List of Todos</Subheader>
               {todos.map(t => (
                 <ListItem
-                key={t.id}
-                leftCheckbox={<Checkbox />}
-                primaryText={t.title}
-              />))}
+                  key={t.id}
+                  leftCheckbox={<Checkbox />}
+                  primaryText={t.title}
+                  rightIconButton={<IconButton tooltip="Remove" onClick={() => { this.props.dispatch(removeTodo(t.id))}}>
+                    <ContentRemove />
+                  </IconButton>}
+                />))}
             </List>
           </div> : <Subheader>No Todos</Subheader>}
         </Paper>

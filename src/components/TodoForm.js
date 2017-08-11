@@ -26,7 +26,9 @@ class TodoForm extends Component {
         <RaisedButton
           icon={<ContentAdd />}
           style={style}
-          onClick={() => this.props.dispatch(addTodo(todo))}
+          onClick={() => {
+            this.props.dispatch(addTodo(todo));
+          }}
         />
       </div>
     )
