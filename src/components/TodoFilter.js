@@ -4,8 +4,9 @@ import Checkbox from 'material-ui/Checkbox';
 import { filterCompleted as onFilterCompleted } from '../actions/filterActions';
 
 const TodoFilter = ({ filterCompleted, dispatch }) => {
+  const filterLabel = "Filter completed todos"
   return (
-    <Checkbox style={{marginTop: 20}} checked={filterCompleted} label="Filter completed" onCheck={() => dispatch(onFilterCompleted())}/>
+    <Checkbox style={{marginTop: 20}} checked={filterCompleted} label={filterLabel} onCheck={() => dispatch(onFilterCompleted())}/>
   );
 }
 

@@ -15,7 +15,7 @@ class TodoContainer extends Component {
     const filteredTodos = filterCompleted ? todos.filter(t => !t.completed) : todos;
     return (
       <div>
-        <AppBar title="Todo Application" />
+        <AppBar showMenuIconButton={false} title="Todo Application" />
         <Paper style={{ padding: 20, margin: 20 }}>
           <TodoForm></TodoForm>
           {filteredTodos.length > 0 ? <div>

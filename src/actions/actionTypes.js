@@ -2,3 +2,5 @@ export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
 export const MARK_COMPLETE = 'MARK_COMPLETE';
 export const FILTER_COMPLETED = 'FILTER_COMPLETED';
+export const RESET_NEW_TODO = 'RESET_NEW_TODO';
+export const CHANGE_NEW_TODO_TITLE = 'CHANGE_NEW_TODO_TITLE';
