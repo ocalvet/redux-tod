@@ -5,24 +5,29 @@ import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import { List } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
 import TodoItem from './TodoItem';
+import TodoFilter from './TodoFilter';
 
 class TodoContainer extends Component {
   render() {
-    const { todos } = this.props;
+    const { todos, filterCompleted } = this.props;
+    const filteredTodos = filterCompleted ? todos.filter(t => !t.completed) : todos;
     return (
       <div>
         <AppBar title="Todo Application" />
         <Paper style={{ padding: 20, margin: 20 }}>
           <TodoForm></TodoForm>
-          {todos.length > 0 ? <div>
+          {filteredTodos.length > 0 ? <div>
             <List>
               <Subheader>List of Todos</Subheader>
-              {todos.map(todo => (
+              {filteredTodos.map(todo => (
                 <TodoItem key={todo.id} todo={todo} />
                 ))}
             </List>
           </div> : <Subheader>No Todos</Subheader>}
+          <Divider />
+          <TodoFilter />
         </Paper>
       </div>
     )
@@ -30,7 +35,8 @@ class TodoContainer extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos
+    todos: state.todos,
+    filterCompleted: state.filter.filterCompleted
   };
 }
 export default connect(mapStateToProps)(TodoContainer);
