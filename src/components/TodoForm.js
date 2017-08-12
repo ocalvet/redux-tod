@@ -12,7 +12,8 @@ const style = {
 class TodoForm extends Component {
   render() {
     let todo = {
-      title: ''
+      title: '',
+      completed: false
     };
     return (
       <div>
