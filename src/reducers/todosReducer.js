@@ -11,9 +11,8 @@ const todos = (state = [], action) => {
     case MARK_COMPLETE:
       return state.map(todo => todo.id === action.id ? {...todo, completed: !todo.completed} : todo);
     default:
-      console.log(`No reducer for ${action.type}`, state, action);
-  };
-
+      break;
+  }
   return state;
 }
 
